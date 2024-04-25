@@ -3,12 +3,13 @@ import Layout from '../../components/Layout/Layout'
 import { toast } from 'react-toastify'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/auth.jsx'
 function Login() {
     
     const [email,setEmail]=useState("")
-    
     const [password,setPassword]=useState("")
-    
+    const [auth,setAuth]=useAuth()
+
     const navigate=useNavigate()
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -16,6 +17,12 @@ function Login() {
             const res = await axios.post('/api/v1/auth/login',{email,password})
             if(res.data.success){
                 toast.success(res.data.message)
+                setAuth({
+                  ...auth,
+                  user:res.data.user,
+                  token:res.data.token
+                })
+                localStorage.setItem('auth',JSON.stringify(res.data))
                 navigate("/")
             }else{
                 toast.error(res.data.message)
@@ -30,10 +37,10 @@ function Login() {
 
   return (
     <Layout title="Login | ShopEase">
-        <div className="register">
-            <h1>Login Page</h1>
+        <div className="form-container">
+            
             <form onSubmit={handleSubmit}>
-
+            <h4 className="title">LOGIN FORM</h4>
   <div className="row mb-3 mt-3">
     <label htmlFor="exampleInputEmail" className="col-sm-3 col-form-label">Email</label>
     <div className="col-sm-9">

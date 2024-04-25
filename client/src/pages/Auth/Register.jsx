@@ -3,6 +3,7 @@ import Layout from '../../components/Layout/Layout'
 import { toast } from 'react-toastify'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import "../../styles/AuthStyles.css";
 function Register() {
     const [name,setName]=useState("")
     const [email,setEmail]=useState("")
@@ -30,9 +31,11 @@ function Register() {
 
   return (
     <Layout title="Register | ShopEase">
-        <div className="register">
-            <h1>Register Page</h1>
+        <div className="form-container">
+            
             <form onSubmit={handleSubmit}>
+            <h4 className="title">REGISTER FORM</h4>
+
   <div className="row mb-3 mt-3">
     <label htmlFor="exampleInputName" className="col-sm-3 col-form-label">Name</label>
     <div className="col-sm-9">
@@ -69,7 +72,7 @@ function Register() {
     
   </div>
   
-  <button type="submit" className="btn btn-primary col-sm-12">Submit</button>
+  <button type="submit" className="col-sm-12 btn btn-primary ">SUBMIT</button>
   
 </form>
 

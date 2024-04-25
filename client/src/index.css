@@ -115,14 +115,5 @@ background: linear-gradient(90deg, rgba(1,0,10,1) 76%, rgba(40,66,71,1) 100%);
   margin-bottom: 20px;
 }
 
-/*register page*/
 
-.register{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  height:70vh;
-  flex-direction: column;
-
-}
 
