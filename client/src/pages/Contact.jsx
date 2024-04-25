@@ -1,10 +1,29 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout'
-
+import {BiMailSend,BiPhoneCall,BiSupport} from 'react-icons/bi'
 function Contact() {
   return (
-    <Layout>
-        <h1>Contact Page</h1>
+    <Layout title={"Contact Us | ShopEase"}>
+      <div className="row contactus">
+        <div className="col-md-6">
+          <img src="/images/contactus.jpeg"  alt="contactus" style={{width:"90%"}}/>
+        </div>
+
+        <div className="col-md-4">
+          <h1 className="bg-dark p-3 text-white text-center mb-3">CONTACT US</h1>
+          <p className="text-justify mt-2">Call anytime for any query,Available 24 X 7</p>
+          <p className="mt-3">
+            <BiMailSend /> : www.help@shopease.com
+          </p>
+          <p className="mt-3">
+            <BiPhoneCall /> : 012-3456789
+          </p>
+          <p className="mt-3">
+            <BiSupport /> : 1800-0000-0000 (toll free)
+          </p>
+          
+        </div>
+      </div>
     </Layout>
   )
 }
